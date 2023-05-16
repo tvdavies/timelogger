@@ -1,0 +1,45 @@
+{
+  "name": "timelogger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "bin": {
+    "tes": "./dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist node_modules",
+    "start": "node dist/index.js",
+    "lint": "eslint . --report-unused-disable-directives",
+    "lint:fix": "npm run lint --fix",
+    "format": "prettier --write --plugin-search-dir=. **/*.{cjs,mjs,ts,tsx,md,json} --ignore-path ../.gitignore --ignore-unknown --no-error-on-unmatched-pattern",
+    "format:check": "npm run format --check",
+    "release": "changeset version",
+    "pub:beta": "npm run build && npm run publish --tag beta",
+    "pub:next": "npm run build && npm run publish --tag next",
+    "pub:release": "npm run build && npm run publish"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "commander": "^10.0.1",
+    "dotenv": "^16.0.3",
+    "jira-client": "^8.2.2",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@types/jira-client": "^7.1.6",
+    "@types/node": "^20.1.4",
+    "@typescript-eslint/eslint-plugin": "^5.59.5",
+    "@typescript-eslint/parser": "^5.59.5",
+    "eslint": "^8.40.0",
+    "prettier": "^2.8.8",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4"
+  }
+}

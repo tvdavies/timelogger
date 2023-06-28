@@ -10,7 +10,7 @@ const envSchema = z.object({
   JIRA_PASSWORD: z.string(),
   JIRA_API_VERSION: z.string().default('2'),
   JIRA_STRICT_SSL: z.coerce.boolean().default(true),
-  JIRA_PROJECT: z.string(),
+  JIRA_TEAM: z.coerce.number(),
   START_DATE: z.string(),
   END_DATE: z.string(),
   HOURS_PER_DAY: z.coerce.number().default(5),

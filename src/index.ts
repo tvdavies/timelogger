@@ -16,7 +16,7 @@ const bauResult = (await jiraClient.searchJira(
   `
   summary ~ "Retrospective, other meetings and BAU"
   and status was "To Do" DURING(${env.START_DATE}, ${env.END_DATE})
-  and project = "${env.JIRA_PROJECT}"
+  and "Team[Team]" = ${env.JIRA_TEAM}
   `,
 )) as Result;
 
@@ -24,7 +24,7 @@ const scrumResult = (await jiraClient.searchJira(
   `
   summary ~ "EXCEPT RETRO"
   and status was "To Do" DURING(${env.START_DATE}, ${env.END_DATE})
-  and project = "${env.JIRA_PROJECT}"
+  and "Team[Team]" = ${env.JIRA_TEAM}
   `,
 )) as Result;
 

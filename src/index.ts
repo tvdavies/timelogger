@@ -48,11 +48,11 @@ const dayBeforeEndDate = new Date(endDate);
 dayBeforeEndDate.setDate(dayBeforeEndDate.getDate() - 1);
 const days = (endDate.getTime() - startDate.getTime()) / 1000 / 60 / 60 / 24;
 // Work out how many working days there are in the range
-const workingDays = Math.ceil((days * 5) / 7);
+const workingDays = Math.max(Math.min(5, days), Math.ceil((days * 5) / 7));
 // Work out the number of hours to assign
-const hours = workingDays * 5;
+const hours = workingDays * 7;
 // Work out the standard deviation
-const standardDeviation = hours * 0.2;
+const standardDeviation = hours * 0.1;
 // Work out the minimum number of hours to assign
 const minHours = hours - standardDeviation;
 // Work out the maximum number of hours to assign
